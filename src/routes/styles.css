@@ -1,0 +1,14 @@
+:root {
+	/* */
+	--foreground: #333;
+	/* for buttons and clickable elements*/
+	--accent: #a4a;
+	/* highlight of accented elements */
+	--highlight: #ddd;
+	/* Light text for dark backgrounds */
+	--light-text: #fff;
+}
+
+div.spacer {
+	flex-grow: 1;
+}
