@@ -1,17 +1,14 @@
 <script>
-  import { data } from "$lib/data.js";
+  import { store } from "$lib/store.js";
+  import Actions from "../../lib/Actions.svelte";
 
-  let search = "";
-
-  $: results = data.events.filter((e) => e.name.includes(search));
+  $: selected = $store.selected.map((s) =>
+    $store.events.find((e) => e.id == s)
+  );
 </script>
 
 <h1>Schedule</h1>
-
-<label for="search">
-  Search:
-  <input type="text" name="search" id="search" bind:value={search} />
-</label>
+<p>Here you can find all of your currently selected events</p>
 
 <table>
   <thead class="list-header">
@@ -34,10 +31,10 @@
     </tr>
   </thead>
   <tbody>
-    {#each results as event}
+    {#each selected as event}
       <tr>
         <td>
-          <span>{event.name}</span>
+          <a href="/events/event-{event.id}">{event.name}</a>
         </td>
         <td>
           <span>{event.desc}</span>
@@ -49,7 +46,7 @@
           <span>✔</span>
         </td>
         <td>
-          <span />
+          <span><Actions eventID={event.id} /></span>
         </td>
       </tr>
     {/each}
