@@ -5,9 +5,7 @@
 
 <div class="app">
 	<header>
-		<div>
-			<img src={logo} alt="Design Designs Logo" />
-		</div>
+		<img src={logo} alt="Design Designs Logo" />
 		<nav>
 			<a href="/">Home</a>
 			<a href="/schedule">Schedule</a>
