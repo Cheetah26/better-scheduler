@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'AlbertSans';
+	src: url('/fonts/AlbertSans-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
 	/* */
 	--foreground: #333;
@@ -7,6 +12,10 @@
 	--highlight: #ddd;
 	/* Light text for dark backgrounds */
 	--light-text: #fff;
+}
+
+body {
+	font-family: 'AlbertSans';
 }
 
 div.spacer {

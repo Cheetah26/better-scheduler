@@ -11,7 +11,7 @@
   <h2>Recommended Events:</h2>
   <ul>
     {#each events as event}
-      <li><a href="/events/event-{event.id}">{event.name}</a></li>
+      <li><a href="/events/event-{event.name}">{event.name}</a></li>
     {/each}
   </ul>
 </div>

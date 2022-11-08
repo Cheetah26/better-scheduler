@@ -34,7 +34,7 @@
     {#each selected as event}
       <tr>
         <td>
-          <a href="/events/event-{event.id}">{event.name}</a>
+          <a href="/events/event-{event.name}">{event.name}</a>
         </td>
         <td>
           <span>{event.desc}</span>

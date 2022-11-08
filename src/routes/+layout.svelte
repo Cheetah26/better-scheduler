@@ -5,11 +5,9 @@
 
 <div class="app">
 	<header>
-		<img
-			src={logo}
-			alt="Design Designs Logo"
-			style="width: auto; height: 100%;"
-		/>
+		<div>
+			<img src={logo} alt="Design Designs Logo" />
+		</div>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/schedule">Schedule</a>
@@ -30,17 +28,22 @@
 
 <style>
 	header {
-		height: 3rem;
 		display: flex;
 		flex-direction: row;
+		height: 2.75em;
 	}
 	nav {
 		display: flex;
 		flex-direction: row;
 
 		background-color: var(--foreground);
-		padding: 0.5rem;
+		padding: 0.5em;
 		flex-grow: 1;
+	}
+
+	header img {
+		height: 100%;
+		width: auto;
 	}
 
 	a {

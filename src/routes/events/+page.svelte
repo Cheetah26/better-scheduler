@@ -16,9 +16,12 @@
 
     if (daysFilter.length > 0) {
       results = results.filter((e) => {
-        let eDays = e.times.split(" ")[0];
+        let eventDays = e.times.split(" ")[0].split("");
 
-        return daysFilter.some((d) => eDays.includes(d));
+        return (
+          eventDays.length <= daysFilter.length &&
+          eventDays.every((d) => daysFilter.includes(d))
+        );
       });
     }
 
@@ -30,13 +33,13 @@
 
 <h1>Events list</h1>
 
-<section>
+<section class="filters">
   <label for="search">
     Search event names:
     <input type="text" name="search" id="search" bind:value={search} />
   </label>
 
-  <div>
+  <div class="weekdayFilter">
     Filter by day:
     {#each weekdays as day}
       <label for={day}>
@@ -71,7 +74,7 @@
     {#each results as event}
       <tr>
         <td>
-          <a href="/events/event-{event.id}">{event.name}</a>
+          <a href="/events/event-{event.name}">{event.name}</a>
         </td>
         <td>
           <span>{event.desc}</span>
@@ -79,10 +82,10 @@
         <td>
           <span>{event.times}</span>
         </td>
-        <td>
+        <td class="center">
           <span>✔</span>
         </td>
-        <td>
+        <td class="center">
           <span><Actions eventID={event.id} /></span>
         </td>
       </tr>
@@ -103,5 +106,30 @@
 
   tr {
     border-bottom: 1px solid var(--foreground);
+  }
+
+  tbody > tr:hover {
+    color: var(--light-text);
+    background-color: var(--accent);
+  }
+  tbody > tr:hover a {
+    color: lightgray;
+  }
+
+  td.center {
+    text-align: center;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+  }
+
+  .weekdayFilter label {
+    border: 1px solid var(--foreground);
+    margin: 0.25rem;
+    padding: 0.1rem;
   }
 </style>

@@ -3,7 +3,7 @@
   import { data } from "$lib/data.js";
 
   let error = false;
-  let event = data.events.find((e) => e.id == $page.params.id);
+  let event = data.events.find((e) => e.name == $page.params.name);
   if (event == null) {
     error = true;
   }
