@@ -18,4 +18,6 @@
   <p>{event.desc}</p>
   <h3>When:</h3>
   <p>{event.times}</p>
+  <h3>Detailed Info:</h3>
+  <p>{event.info}</p>
 {/if}
